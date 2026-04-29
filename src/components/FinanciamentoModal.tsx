@@ -39,7 +39,6 @@ export const FinanciamentoModal = ({ bike, isOpen, onClose }: FinanciamentoModal
   const [cpf, setCpf] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [valorEntrada, setValorEntrada] = useState("");
-  const [valorParcela, setValorParcela] = useState("");
   const [situacaoHabilitacao, setSituacaoHabilitacao] = useState("");
   const [enviado, setEnviado] = useState(false);
 
@@ -73,7 +72,6 @@ export const FinanciamentoModal = ({ bike, isOpen, onClose }: FinanciamentoModal
       setCpf("");
       setDataNascimento("");
       setValorEntrada("");
-      setValorParcela("");
       setSituacaoHabilitacao("");
       setEnviado(false);
       setCurrentImage(0);
@@ -84,20 +82,20 @@ export const FinanciamentoModal = ({ bike, isOpen, onClose }: FinanciamentoModal
   // Determinar passo atual
   const passoAtual = useMemo(() => {
     const temDadosPessoais = nome.trim() || cpf.trim() || dataNascimento.trim();
-    const temDadosValores = valorEntrada.trim() || valorParcela.trim();
+    const temDadosValores = valorEntrada.trim();
     const dadosPessoaisCompletos = nome.trim() && cpf.trim() && dataNascimento.trim();
-    const dadosValoresCompletos = valorEntrada.trim() && valorParcela.trim();
+    const dadosValoresCompletos = valorEntrada.trim();
 
     if (dadosPessoaisCompletos && dadosValoresCompletos && situacaoHabilitacao) return 3;
     if (temDadosValores || dadosPessoaisCompletos) return 2;
     if (temDadosPessoais) return 1;
     return 0;
-  }, [nome, cpf, dataNascimento, valorEntrada, valorParcela, situacaoHabilitacao]);
+  }, [nome, cpf, dataNascimento, valorEntrada, situacaoHabilitacao]);
 
   // Verificar se formulário está completo
   const formularioCompleto = useMemo(() => {
-    return nome.trim() && cpf.trim() && dataNascimento.trim() && valorEntrada.trim() && valorParcela.trim() && situacaoHabilitacao;
-  }, [nome, cpf, dataNascimento, valorEntrada, valorParcela, situacaoHabilitacao]);
+    return nome.trim() && cpf.trim() && dataNascimento.trim() && valorEntrada.trim() && situacaoHabilitacao;
+  }, [nome, cpf, dataNascimento, valorEntrada, situacaoHabilitacao]);
 
   // Formatação de CPF
   const formatCPF = (value: string) => {
@@ -170,7 +168,6 @@ export const FinanciamentoModal = ({ bike, isOpen, onClose }: FinanciamentoModal
 
 *Valores:*
 • Entrada: ${valorEntrada}
-• Parcela Desejada: ${valorParcela}
 
 Enviado Pelo Site Compra Acelerada`;
 
@@ -458,7 +455,7 @@ Enviado Pelo Site Compra Acelerada`;
             </div>
 
             {/* Dados de Valores */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="grid grid-cols-1 gap-4 pt-2">
               <div className="space-y-2">
                 <Label htmlFor="valorEntrada" className="text-sm font-semibold text-gray-700">
                   Valor da Entrada
@@ -468,19 +465,6 @@ Enviado Pelo Site Compra Acelerada`;
                   placeholder="R$ 0,00"
                   value={valorEntrada}
                   onChange={(e) => setValorEntrada(formatMoeda(e.target.value))}
-                  className="h-12 text-base rounded-xl border-gray-300 focus:border-[#c41212] focus:ring-[#c41212]"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="valorParcela" className="text-sm font-semibold text-gray-700">
-                  Valor da Parcela Desejada
-                </Label>
-                <Input
-                  id="valorParcela"
-                  placeholder="R$ 0,00"
-                  value={valorParcela}
-                  onChange={(e) => setValorParcela(formatMoeda(e.target.value))}
                   className="h-12 text-base rounded-xl border-gray-300 focus:border-[#c41212] focus:ring-[#c41212]"
                 />
               </div>
