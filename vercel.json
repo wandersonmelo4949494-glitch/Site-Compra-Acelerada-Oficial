@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      "src": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(facebookexternalhit|facebot|twitterbot|whatsapp|discordbot|slackbot|linkedinbot|telegrambot|googlebot|bingbot|applebot).*"
+        }
+      ],
+      "dest": "/api/og"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

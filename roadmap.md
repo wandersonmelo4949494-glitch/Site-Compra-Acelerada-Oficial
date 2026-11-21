@@ -1,0 +1,17 @@
+# Tasks
+- [x] Correct Android-phone-only export proportions in a private desktop viewport after local image preparation; two-table downloaded pixels below the header match PC, visible modal/cleanup checks and all export/HD regressions passed in fixtures. Physical Android validation remains unavailable.
+- [x] Adjust only the novelty notice label, font size, centering and mobile two-line wrapping; ten viewport fixture checks and seven export regressions passed, preserving capture exclusions and all export routines.
+- [x] Update only consortium save-button appearance and add the capture-excluded novelty notice; seven viewport checks and export/quality/retry regressions passed using local fixtures. Physical device saving remains covered by the open device-access tasks below.
+- [x] Correct iPhone-only text measurement in the caller document used by html2canvas, preserving cells, modal, desktop/iPad and sharing.
+- [x] Replace iPhone per-cell baseline offsets with private renderer font-probe normalization, preserving the original grid and desktop/iPad paths.
+- [ ] Compare with the user's desktop reference on physical iPhone Safari/Chrome — no reference images or physical Apple browsers available here.
+- [x] Compare the previous iPhone implementation and isolate contact alignment to iPhone-only presentation styles, preserving all capture/share/JPEG routines and existing iPad/Android/PC styles.
+- [ ] Validate the reported white-image regression and contact alignment on a physical iPhone Safari/Chrome — requires access to the affected device; not reproduced in local Chromium/WebKit.
+- [x] Reproduce iPad preview stuck behind unresolved automatic native sharing and bypass it only on iPad; bound rendering waits and align export contacts without editing the visible modal.
+- [x] Run Chromium export regression checks for iPhone Safari/Chrome, iPad Safari/Chrome/desktop mode, Android and Windows, including contact imagery; physical Apple WebKit verification remains unavailable.
+- [x] Add iOS-only consortium capture and native-share/image-preview saving, preserving other devices.
+- [x] Verify JPEG generation (2460×3055) with tables/watermarks in Chromium using iPhone Safari/Chrome and iPad user agents, and existing downloads with Android/Windows user agents. Catalog connection is unavailable; these checks use an isolated fixture, not real Apple browsers.
+- [ ] Verify saving to Photos on physical iPhone Safari/Chrome and iPad — requires real Apple device access.
+- [x] Improve consortium export resolution locally with adaptive capture, JPEG 0.95 and cached CORS images; preserve the visible modal and saving paths.
+- [x] Run export, retry, dimensions and cache regression checks; deliver the complete updated component. Chromium fixtures and desktop WebKit passed; actual catalog data remains unavailable in the local preview.
+- [ ] Measure Storage Egress over 24 hours and verify physical Apple/Android saving — requires hosted usage metrics, elapsed time and real devices.
